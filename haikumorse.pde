@@ -4,7 +4,6 @@ Morse m;
 char current;
 StringIterator haiku, morseSequence, timing;
 String alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-PImage skull;
 
 void setup() {
   size(1200,1000);
@@ -13,7 +12,6 @@ void setup() {
   morseSequence = new StringIterator( "", false ); // initialize as null for first check
   timing = new StringIterator("",false); // initialize as null for first check
   m = new Morse();
-  skull = loadImage("skull.jpg");
  
 }
 
@@ -47,19 +45,9 @@ boolean step() {
 }
 
 void draw() {  
-  background(0);
   if (step()) {
-    //fill(255);
-    float dim = (1.0+alph.indexOf(Character.toUpperCase(current))) / 7.0;
-    //ellipse(width/2,height/2,dim,dim);
-    pushMatrix();
-      translate(width/2,height/2);
-      //rotate(dim);
-      scale(dim);
-      image(skull,-skull.width/2,-skull.height/2);
-    popMatrix();
+    background(0);  
+  } else {
+    background(0);    
   }
-  filter(INVERT);
-  
-
 }
